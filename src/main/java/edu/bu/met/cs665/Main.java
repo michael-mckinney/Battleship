@@ -1,12 +1,10 @@
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.example1.Person;
-import org.apache.log4j.Logger;
-// import org.apache.log4j.PropertyConfigurator;
+
 
 public class Main {
 
-  private static Logger logger = Logger.getLogger(Main.class);
+
 
 
   /**
@@ -23,22 +21,12 @@ public class Main {
     // Let us create an object of the Main class.
     Main m = new Main();
 
-    logger.info(m.doIt());
+ 
 
-    logger.trace("Trace Message!");
-    logger.debug("Debug Message!");
-    logger.info("Info Message!");
-    logger.warn("Warn Message!");
-    logger.error("Error Message!");
-    logger.fatal("Fatal Message!");
 
   }
 
 
 
-  private String doIt() {
-    Person student = new Person("John", "Doe");
-    return student.getLastName() + ',' + student.getLastName();
-  }
 
 }
