@@ -7,16 +7,17 @@ public class Player {
   
   
   public Player(String name) {
-    this.playerName = name;  
+    this.playerName = name; 
+    this.board= new Board();
   }
   
   public String getPlayerName() {
     return this.playerName;
   }
   
-  public Board createBoard() {
-    board = new Board();
-    return board;
+  public Board getPlayerBoard() {
+	  return this.board;
   }
+  
   
 }
