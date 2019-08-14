@@ -19,5 +19,9 @@ public class Player {
 	  return this.board;
   }
   
+  public void resetBoard() {
+	  this.board = new Board();
+  }
+  
   
 }

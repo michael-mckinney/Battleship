@@ -18,6 +18,10 @@ public class ControlTower {
   public Location getLocation() {
 	  return this.location;
   }
+  
+  public Ship getShip() {
+	  return this.ship;
+  }
 
 
 }

@@ -24,8 +24,12 @@ public abstract class Ship extends Observable{
 		if (shipHealth == 0) {
 			setChanged();
 			//do I have to pass an object?
-			notifyObservers();
+			notifyObservers(this);
 		}
+	}
+	
+	public void addBoardObserver(Board board) {
+		this.addObserver(board);
 	}
 	
 	

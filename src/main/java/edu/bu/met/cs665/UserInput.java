@@ -50,7 +50,7 @@ public class UserInput {
 		
 	}
 	
-	public int[] getGridLocation(Scanner s) {
+	public static int[] getGridLocation(Scanner s) {
 		
 		int[] gridLocation = new int[2]; 
 		int row;
