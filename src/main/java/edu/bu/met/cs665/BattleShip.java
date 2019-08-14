@@ -17,18 +17,30 @@ public class BattleShip {
 
 		BattleShip bs = new BattleShip();
 
-		UserInput userInput = new UserInput();
+		bs.shipSelection();
 
-		int ships = userInput.getNumShips(s);
-
-		// test creating a player
-		player1 = new Player("Mike");
-
-		// test set Ships
-		bs.setShips(ships, player1);
-
-		s.close();
-
+	}
+	
+	private void shipSelection() {
+		System.out.println("Welcome to BattleShip!");
+		
+		//Ask how many ships that would like to play with
+		System.out.println("How many ships would you like to play with?");
+		int ships = UserInput.getNumShips(s);
+		
+		//Create a new player 1
+		System.out.println("Player 1 enter your name!");
+		player1 = new Player(UserInput.getName(s));
+		//ask player 1 to set their ships
+		System.out.println(player1.getPlayerName() + " , place your ships!");
+		setShips(ships, player1);
+		
+		//Create a new player 2
+		System.out.println("Player 2 enter your name!");
+		player2 = new Player(UserInput.getName(s));
+		//ask player 2 to set their ships
+		System.out.println(player2.getPlayerName() + " , place your ships!");
+		setShips(ships, player2);
 	}
 
 	private void setShips(int numShips, Player player) {

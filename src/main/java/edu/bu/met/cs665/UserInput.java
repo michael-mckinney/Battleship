@@ -7,6 +7,23 @@ import java.util.Scanner;
 // scanner should be closed from the calling class
 public class UserInput {
 	
+	public static String getName(Scanner s) {
+		
+		String name = null;
+		while (true) {
+			if (s.hasNext()) {
+				name = s.next();
+			}
+			break;
+		}
+		// limit name length
+		if (name.length()>20) {
+		    String cutName = name.substring(0, 20);
+		    name = cutName;
+		}
+		return name;
+	}
+	
 	public static int getNumShips(Scanner s) {
 		
 		int numShips;
