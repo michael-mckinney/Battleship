@@ -25,7 +25,7 @@ public class ControlTower {
   }
 
   // various checks on the location
-  public boolean checkOccupied(int[] xy) {
+  public boolean checkOccupied() {
     if (this.location.getStatus().contentEquals("Occupied")) {
       return true;
     } else {
@@ -33,7 +33,7 @@ public class ControlTower {
     }
   }
 
-  public boolean checkEmpty(int[] xy) {
+  public boolean checkEmpty() {
     if (this.location.getStatus().contentEquals("Empty")) {
       return true;
     } else {
@@ -41,7 +41,7 @@ public class ControlTower {
     }
   }
 
-  public boolean checkHit(int[] xy) {
+  public boolean checkHit() {
     if (this.location.getStatus().contentEquals("Hit")) {
       return true;
     } else {
@@ -49,7 +49,7 @@ public class ControlTower {
     }
   }
 
-  public boolean checkMissed(int[] xy) {
+  public boolean checkMissed() {
     if (this.location.getStatus().contentEquals("Missed")) {
       return true;
     } else {

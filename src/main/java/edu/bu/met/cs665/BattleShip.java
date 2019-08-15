@@ -108,7 +108,7 @@ public class BattleShip {
         ControlTower ct = player.getPlayerBoard().boardGrid[xy[0]][xy[1]];
 
         // check if the space is already occupied
-        if (ct.checkOccupied(xy)) {
+        if (ct.checkOccupied()) {
           System.out.println("That location already has a ship!");
         } else {
           occupied = false;
@@ -173,12 +173,12 @@ public class BattleShip {
     ControlTower ct = player.getPlayerBoard().boardGrid[shot[0]][shot[1]];
 
     // update location if it is a miss
-    if (ct.checkEmpty(shot)) {
+    if (ct.checkEmpty()) {
       System.out.println("That's a miss!");
       ct.setLocationState(new MissedLocation());
 
       // update location if it is a hit
-    } else if (ct.checkOccupied(shot)) {
+    } else if (ct.checkOccupied()) {
       System.out.println("That's a hit!");
       ct.setLocationState(new HitLocation());
       // decrement the ship life
@@ -191,7 +191,7 @@ public class BattleShip {
 
       // tell the player to be more careful if they are selecting already hit or
       // missed locations
-    } else if (ct.checkHit(shot) || ct.checkMissed(shot)) {
+    } else if (ct.checkHit() || ct.checkMissed()) {
       System.out.println("You already selected that location! Be more careful in your selections!");
     }
 

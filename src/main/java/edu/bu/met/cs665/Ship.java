@@ -16,6 +16,10 @@ public abstract class Ship extends Observable {
   protected int getShipSize() {
     return this.shipSize;
   }
+  
+  protected int getShipHealth() {
+    return this.shipHealth;
+  }
 
   public void decrementHealth() {
     --this.shipHealth;
