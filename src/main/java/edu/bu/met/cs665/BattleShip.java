@@ -54,108 +54,84 @@ public class BattleShip{
 	}
 
 	private void setShips(int numShips, Player player) {
+		
+		Ship ship;
 
 		for (int i = 1; i < numShips + 1; i++) {
 			switch (i) {
 			case 1:	
-				Ship destroyer = new ShipDestroyer();
-				destroyer.addBoardObserver(player.getPlayerBoard());
+				ship = ShipFactory.getShip("Destroyer", player);
 				System.out.println("Where would you like to place your Destroyer?");
 				System.out.println("Select 2 adjacent locations");
-				//initialize previousLocation to null
-				int[] previousLocation1 = null;
-				// need to set 2 spots for a Destroyer
-				for (int j = 0; j < 2; j++) {
-					previousLocation1 = setShipHelper(player, previousLocation1, destroyer);
-				}
+				setShipHelper(player, ship);
+				
 				break;
 			case 2: 
-				Ship submarine = new ShipSubmarine();
-				submarine.addBoardObserver(player.getPlayerBoard());
+				ship = ShipFactory.getShip("Submarine", player);
 				System.out.println("Where would you like to place your Submarine?");
 				System.out.println("Select 3 adjacent locations");
-				//initialize previousLocation to null
-				int[] previousLocation2 = null;
-				// need to set 3 spots for a Submarine
-				for (int j = 0; j < 3; j++) {
-					previousLocation2 = setShipHelper(player, previousLocation2, submarine);
-				}
+				setShipHelper(player, ship);
 				break;
 			case 3: 
-				Ship cruiser = new ShipCruiser();
-				cruiser.addBoardObserver(player.getPlayerBoard());
+				ship = ShipFactory.getShip("Cruiser", player);
 				System.out.println("Where would you like to place your Cruiser?");
 				System.out.println("Select 3 adjacent locations");
-				//initialize previousLocation to null
-				int[] previousLocation3 = null;
-				// need to set 3 spots for a Cruiser
-				for (int j = 0; j < 3; j++) {
-					previousLocation3 = setShipHelper(player, previousLocation3, cruiser);
-				}
+				setShipHelper(player, ship);
 				break;
 			case 4: 
-				Ship battleship = new ShipBattleShip();
-				battleship.addBoardObserver(player.getPlayerBoard());
+				ship = ShipFactory.getShip("Battleship", player);
 				System.out.println("Where would you like to place your BattleShip?");
 				System.out.println("Select 4 adjacent locations");
-				//initialize previousLocation to null
-				int[] previousLocation4 = null;
-				// need to set 4 spots for a BattleShip
-				for (int j = 0; j < 4; j++) {
-					previousLocation4 = setShipHelper(player, previousLocation4, battleship);
-				}
+				setShipHelper(player, ship);
 				break;
 			case 5: 
-				Ship carrier = new ShipCarrier();
-				carrier.addBoardObserver(player.getPlayerBoard());
+				ship = ShipFactory.getShip("Submarine", player);
 				System.out.println("Where would you like to place your Carrier?");
 				System.out.println("Select 5 adjacent locations");
-				//initialize previousLocation to null
-				int[] previousLocation5 = null;
-				// need to set 5 spots for a Carrier
-				for (int j = 0; j < 5; j++) {
-					previousLocation5 = setShipHelper(player, previousLocation5, carrier);
-				}
+				setShipHelper(player, ship);
 				break;
 			}
 		}
 	}
 	
-	public int[] setShipHelper(Player player, int[] previousLocation, Ship ship) {
-		// would love to make this static
-		
-		
-		
-		// while loop until all checks on input complete
-		while (true) {
-			System.out.println("Select a new location!");
-			boolean occupied = true;
-			int[] xy = UserInput.getGridLocation(s);
+	public void setShipHelper(Player player, Ship ship) {
+		int[] previousLocation = null;
+		for (int i = 0; i < ship.getShipSize(); i++) {
+			// while loop until all checks on input complete
+			while (true) {
+				System.out.println("Select a new location!");
+				boolean occupied = true;
+				int[] xy = UserInput.getGridLocation(s);
 
-			// check if the space is already occupied
-			if (player.getPlayerBoard().checkOccupied(xy)) {
-				System.out.println("That location already has a ship!");
-			} else {
-				occupied = false;
+				// check if the space is already occupied
+				if (player.getPlayerBoard().checkOccupied(xy)) {
+					System.out.println("That location already has a ship!");
+				} else {
+					occupied = false;
+				}
+				// check if the space is adjacent
+				boolean nextToShip = player.getPlayerBoard().checkAdjacent(xy, previousLocation);
+				if (!nextToShip) {
+					System.out.println("You must select an adjacent location to your previous selection");
+				}
+				// all checks pass
+				if (!occupied && nextToShip) {
+					// set the ship - so yeah I don't want a brand new ship, I want to use the ship I have
+					player.getPlayerBoard().boardGrid[xy[0]][xy[1]].addShip(ship);
+					// update previous location
+					previousLocation = new int[2];
+					previousLocation[0] = xy[0];
+					previousLocation[1] = xy[1];
+					System.out.println("Good idea for a location!");
+					break;
+				}
 			}
-			// check if the space is adjacent
-			boolean nextToShip = player.getPlayerBoard().checkAdjacent(xy, previousLocation);
-			if (!nextToShip) {
-				System.out.println("You must select an adjacent location to your previous selection");
-			}
-			// all checks pass
-			if (!occupied && nextToShip) {
-				// set the ship - so yeah I don't want a brand new ship, I want to use the ship I have
-				player.getPlayerBoard().boardGrid[xy[0]][xy[1]].addShip(ship);
-				// update previous location
-				previousLocation = new int[2];
-				previousLocation[0] = xy[0];
-				previousLocation[1] = xy[1];
-				System.out.println("Good idea for a location!");
-				break;
-			}
+			
 		}
-		return previousLocation;
+		
+		
+		
+		
 	}
 	
 	public void playGame() {

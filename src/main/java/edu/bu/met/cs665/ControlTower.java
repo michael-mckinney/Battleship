@@ -2,7 +2,7 @@ package edu.bu.met.cs665;
 
 public class ControlTower {
   
-  //initialize a Battleship to null
+  //initialize a ship to null
   private Ship ship = null;
   private Location location;
   
