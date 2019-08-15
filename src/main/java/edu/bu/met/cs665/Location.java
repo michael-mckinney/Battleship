@@ -1,7 +1,6 @@
 package edu.bu.met.cs665;
 
 public class Location {
-  
 
   private LocationState currentState;
 
@@ -21,8 +20,5 @@ public class Location {
   public String getDisplay() {
     return currentState.getDisplay();
   }
-  
-
-
 
 }
