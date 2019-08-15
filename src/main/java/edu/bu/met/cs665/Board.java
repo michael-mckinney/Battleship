@@ -8,7 +8,7 @@ public class Board implements Observer {
 	ControlTower[][] boardGrid = new ControlTower[5][5];
 	int shipsRemaining = -1;
 
-	// do this in the constructor instead I think
+	
 	public Board() {
 		// iterate through boardGrid and add Locations
 		for (int row = 0; row < boardGrid.length; row++) {
@@ -23,37 +23,7 @@ public class Board implements Observer {
 		this.shipsRemaining = num;
 	}
 
-	public boolean checkOccupied(int[] xy) {
-		if (boardGrid[xy[0]][xy[1]].getLocation().getStatus().contentEquals("Occupied")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean checkEmpty(int[] xy) {
-		if (boardGrid[xy[0]][xy[1]].getLocation().getStatus().contentEquals("Empty")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean checkHit(int[] xy) {
-		if (boardGrid[xy[0]][xy[1]].getLocation().getStatus().contentEquals("Hit")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean checkMissed(int[] xy) {
-		if (boardGrid[xy[0]][xy[1]].getLocation().getStatus().contentEquals("Missed")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	
 
 	public boolean checkAdjacent(int[] xy, int[] previousLocation) {
 		boolean nextToShip = false;
