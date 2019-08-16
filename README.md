@@ -17,7 +17,7 @@ A Player object is associated with a Board, and a new Board is created upon cons
 
 Finally, I have a Battleship class which contains the main method, and which uses classes like UserInput and ShipFactory, as well as the Player objects, to get user input, create Ships, place the Ships, and register shots. Below is an overall class diagram:
 
-Link here
+![Class Diagram](https://user-images.githubusercontent.com/15668269/63188785-38b9eb00-c017-11e9-9816-e20a9bd9ea28.PNG)
 
 **Factory Pattern** 
 
@@ -69,7 +69,7 @@ The constructor for the Location class initially sets the LocationState field to
 
 This allows for both the state of a Location to be updated (changing an Occupied Location to a Hit Location for example), and for the current status and display for each location to be retrieved. For example, the Board class has a method displayBoard(). This method iterates through each ControlTower object and gets the status of the associated Location. This allows the avoidance of multiple conditional checks in the getDisplay() method. 
 
-It is simple to update the state of a Location from the ControlTower class, so any class that has access to a Player and the associated Board can access a specific ControlTower and update the state of the associated Location. It is also simple to check that status of a Location when a player takes a shot, and then update the status accordingly. This allows for decreased duplicated code, and increased simplicity and understandability. If a new type of state is required, it is simple to add a class that implements the LocationState interface. 
+It is simple to update the state of a Location from the ControlTower class, so any class that has access to a Player and the associated Board can access a specific ControlTower and call a method to update the state of the associated Location. It is also simple to check the state of a Location when a player takes a shot, and then update the state accordingly. This allows for decreased duplicated code, and increased simplicity and understandability. If a new type of state is required, it is simple to add a class that implements the LocationState interface. 
 
  **Observer Pattern** 
  
