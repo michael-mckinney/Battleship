@@ -56,9 +56,20 @@ public class ControlTower {
       return false;
     }
   }
+  
+  // update methods
 
   public void setLocationState(LocationState state) {
     this.location.set_state(state);
+  }
+  
+  public void setHit() {
+    setLocationState(new HitLocation());
+    this.ship.decrementHealth();
+  }
+  
+  public void setMissed() {
+    setLocationState(new MissedLocation());
   }
 
 }

@@ -174,15 +174,12 @@ public class BattleShip {
 
     // update location if it is a miss
     if (ct.checkEmpty()) {
-      System.out.println("That's a miss!");
-      ct.setLocationState(new MissedLocation());
+      ct.setMissed();
 
       // update location if it is a hit
     } else if (ct.checkOccupied()) {
       System.out.println("That's a hit!");
-      ct.setLocationState(new HitLocation());
-      // decrement the ship life
-      ct.getShip().decrementHealth();
+      ct.setHit();
       if (gameOver(player)) {
         System.out.println("You destroyed all " + player.getPlayerName() + "'s ships! Game Over!");
         // game over
