@@ -1,6 +1,6 @@
 # Project Description
 
-For this project I used multiple design patterns in implementing the Battleship game. The game is simple. It is a 2 player game that uses a 5 x 5 grid. The number of ships that will be played with is selected by the user, and ranges from 1 to 5.
+For this project I used multiple design patterns in implementing a command-line Battleship game. The game is simple. It is a 2 player game that uses a 5 x 5 grid. The number of ships that will be played with is selected by the user, and ranges from 1 to 5.
 
 The players place their ships depending on their input into how many ships will be used in that game. The rules for placing a ship are that you cannot place on an already occupied square, and each part of a ship must be adjacent to another part of the same ship. Diagonals are not allowed, but the ship does not have to be in the shape of a straight line. Since the board is 5x5, this game uses a variation that allows ships to be any sort of shape. See the following for more about the battleship game and possible variations on it: https://en.wikipedia.org/wiki/Battleship_(game)#Variations.
 
