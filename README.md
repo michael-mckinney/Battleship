@@ -1,6 +1,6 @@
 # Project Description
 
-For my class project, I chose to implement the optional assignment 8, the Battleship game. The game is simple. It is a 2 player game that uses a 5 x 5 grid. The number of ships that will be played with is selected by the user, and ranges from 1 to 5.
+For this project I used multiple design patterns in implementing the Battleship game. The game is simple. It is a 2 player game that uses a 5 x 5 grid. The number of ships that will be played with is selected by the user, and ranges from 1 to 5.
 
 The players place their ships depending on their input into how many ships will be used in that game. The rules for placing a ship are that you cannot place on an already occupied square, and each part of a ship must be adjacent to another part of the same ship. Diagonals are not allowed, but the ship does not have to be in the shape of a straight line. Since the board is 5x5, this game uses a variation that allows ships to be any sort of shape. See the following for more about the battleship game and possible variations on it: https://en.wikipedia.org/wiki/Battleship_(game)#Variations.
 
@@ -96,7 +96,7 @@ Using the Observer pattern allows for the Board and specific Ship instance to no
 
 # How to compile the project
 
-We use Apache Maven to compile and run this project. 
+You can use Apache Maven to compile and run this project. 
 
 You need to install Apache Maven (https://maven.apache.org/)  on your system. 
 
@@ -120,9 +120,9 @@ mvn clean compile assembly:single
 mvn -q clean compile exec:java -Dexec.executable="edu.bu.met.cs665.BattleShip" -Dlog4j.configuration="file:log4j.properties"
 ```
 
-We recommand the above command for running the project. 
+I recommend the above command for running the project. 
 
-Alternativly, you can run the following command. It will generate a single jar file with all of the dependencies. 
+Alternatively, you can run the following command. It will generate a single jar file with all of the dependencies. 
 
 ```bash
 mvn clean compile assembly:single
@@ -204,11 +204,5 @@ mvn checkstyle:checkstyle
 target/site/checkstyle.html
 ```
 
-
-# Generate  coveralls:report 
-
-```bash
-mvn -DrepoToken=YOUR-REPO-TOCKEN-ON-COVERALLS  cobertura:cobertura coveralls:report
-```
 
 
